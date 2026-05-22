@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jiabin Zheng | Academic Homepage</title>
+  <meta name="description" content="Jiabin Zheng's academic homepage, publications, and research projects." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --bg: oklch(97.5% 0.012 86);
+      --surface: oklch(94.5% 0.015 86);
+      --ink: oklch(22% 0.035 250);
+      --muted: oklch(48% 0.025 250);
+      --line: oklch(84% 0.025 86);
+      --accent: oklch(55% 0.16 42);
+      --accent-2: oklch(43% 0.12 252);
+      --soft: oklch(89% 0.035 78);
+      --shadow: 0 24px 70px color-mix(in oklch, var(--ink) 12%, transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: oklch(18% 0.018 250);
+        --surface: oklch(23% 0.02 250);
+        --ink: oklch(91% 0.018 86);
+        --muted: oklch(70% 0.022 86);
+        --line: oklch(34% 0.025 250);
+        --accent: oklch(69% 0.15 52);
+        --accent-2: oklch(75% 0.08 250);
+        --soft: oklch(28% 0.035 250);
+        --shadow: 0 24px 70px color-mix(in oklch, oklch(8% 0.02 250) 45%, transparent);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 8%, color-mix(in oklch, var(--accent) 20%, transparent), transparent 28rem),
+        radial-gradient(circle at 80% 16%, color-mix(in oklch, var(--accent-2) 13%, transparent), transparent 24rem),
+        linear-gradient(180deg, var(--bg), color-mix(in oklch, var(--bg) 88%, var(--surface)));
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration-color: color-mix(in oklch, var(--accent) 70%, transparent); text-underline-offset: 0.18em; }
+    a:hover { color: var(--accent-2); }
+
+    .page {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 0 38px;
+      font-size: 14px;
+    }
+
+    .brand {
+      font-weight: 750;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      color: var(--muted);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: clamp(28px, 6vw, 72px);
+      align-items: end;
+      padding: clamp(36px, 7vw, 78px) 0 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      margin: 0;
+      max-width: 9ch;
+    }
+
+    .summary {
+      margin: 26px 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .profile-card {
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .profile-card p { color: var(--muted); margin: 0 0 18px; }
+
+    .link-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--bg) 65%, transparent);
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .pill span:last-child { color: var(--accent); }
+
+    section { padding: 54px 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-weight: 780;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 4.8vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 24px;
+      background: color-mix(in oklch, var(--surface) 74%, transparent);
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p { margin: 0; color: var(--muted); }
+
+    .publication-list {
+      counter-reset: pub;
+      display: grid;
+      gap: 16px;
+    }
+
+    .publication {
+      counter-increment: pub;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 16px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .publication:first-child { border-top: 0; }
+
+    .publication::before {
+      content: counter(pub, decimal-leading-zero);
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .pub-title {
+      font-weight: 760;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: -0.018em;
+      margin: 0 0 8px;
+    }
+
+    .pub-meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 8px;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--accent-2);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .hero, .section-head, .research-grid, .projects { grid-template-columns: 1fr; }
+      .hero { align-items: start; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .publication { grid-template-columns: 1fr; }
+      .publication::before { width: auto; border-radius: 999px; justify-content: start; padding-left: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="brand">Jiabin Zheng</div>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="https://orcid.org/0009-0000-9832-1125">ORCID</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">AI Research · Knowledge Graphs · Low-resource Learning</p>
+        <h1>Jiabin Zheng</h1>
+        <p class="summary">
+          I work on language and multimodal intelligence, with a focus on knowledge graph completion,
+          low-resource intent detection, few-shot multi-label learning, and agentic research workflows.
+        </p>
+      </div>
+      <aside class="profile-card" aria-label="Profile links">
+        <h2>Academic profile</h2>
+        <p>Publications below are deduplicated from my public ORCID record, keeping the peer-reviewed venue when ORCID also lists a preprint.</p>
+        <div class="link-list">
+          <a class="pill" href="https://orcid.org/0009-0000-9832-1125"><span>ORCID</span><span>↗</span></a>
+          <a class="pill" href="https://github.com/Biajin-PKU"><span>GitHub</span><span>↗</span></a>
+          <a class="pill" href="https://biajin-pku.github.io/research-harness/"><span>Research Harness Docs</span><span>↗</span></a>
+        </div>
+      </aside>
+    </header>
+
+    <section id="research">
+      <div class="section-head">
+        <p class="section-kicker">Research</p>
+        <h2>Building useful intelligence from sparse signals.</h2>
+      </div>
+      <div class="research-grid">
+        <article class="panel">
+          <h3>Knowledge graph completion</h3>
+          <p>Retrieve-and-rerank, text-enhanced, and image-enhanced methods for completing structured knowledge with multimodal evidence.</p>
+        </article>
+        <article class="panel">
+          <h3>Low-resource NLP</h3>
+          <p>Few-shot and low-resource intent detection, aspect category detection, and sentiment analysis with relation propagation and instruction tuning.</p>
+        </article>
+        <article class="panel">
+          <h3>Vision-language learning</h3>
+          <p>Prompt tuning and meta-learning strategies for multi-label few-shot image recognition.</p>
+        </article>
+        <article class="panel">
+          <h3>Research agents</h3>
+          <p>Research Harness explores how AI agents can preserve state, provenance, and review gates across long-horizon scientific workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-head">
+        <p class="section-kicker">Publications</p>
+        <h2>Selected works from ORCID.</h2>
+      </div>
+      <div class="publication-list">
+        <article class="publication">
+          <div>
+            <p class="pub-title">ReranKGC: A cooperative retrieve-and-rerank framework for multi-modal knowledge graph completion</p>
+            <p class="pub-meta">Neural Networks, 2025</p>
+            <div class="pub-links"><a href="https://doi.org/10.1016/j.neunet.2025.107467">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Clear Up Confusion: Iterative Differential Generation for Fine-grained Intent Detection with Contrastive Feedback</p>
+            <p class="pub-meta">COLING, 2025</p>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Instance Relation Learning Network with Label Knowledge Propagation for Few-shot Multi-label Intent Detection</p>
+            <p class="pub-meta">IJCAI, 2025</p>
+            <div class="pub-links"><a href="https://doi.org/10.24963/ijcai.2025/791">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Less is Enough: Relation Graph Guided Few-shot Learning for Multi-label Aspect Category Detection</p>
+            <p class="pub-meta">ICASSP, 2025</p>
+            <div class="pub-links"><a href="https://doi.org/10.1109/ICASSP49660.2025.10889951">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">PR-KGC: Text-enhanced Knowledge Graph Completion with Pair-wise Re-ranking</p>
+            <p class="pub-meta">ICASSP, 2025</p>
+            <div class="pub-links"><a href="https://doi.org/10.1109/ICASSP49660.2025.10889671">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Meta-Prompt Tuning Vision-Language Model for Multi-Label Few-Shot Image Recognition</p>
+            <p class="pub-meta">CIKM, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.1145/3627673.3679963">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Adaptive Image-Enhanced Knowledge Graph Completion</p>
+            <p class="pub-meta">ICASSP, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.1109/ICASSP48485.2024.10447212">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Building Lightweight Domain-Specific Consultation Systems via Inter-External Knowledge Fusion Contrastive Learning</p>
+            <p class="pub-meta">IEEE Access, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.1109/ACCESS.2024.3434648">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System</p>
+            <p class="pub-meta">IEEE Access, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.1109/ACCESS.2024.3395330">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">From Discrimination to Generation: Low-Resource Intent Detection with Language Model Instruction Tuning</p>
+            <p class="pub-meta">ACL Findings, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.18653/v1/2024.findings-acl.605">DOI</a></div>
+          </div>
+        </article>
+        <article class="publication">
+          <div>
+            <p class="pub-title">Metric-Free Learning Network with Dual Relations Propagation for Few-Shot Aspect Category Sentiment Analysis</p>
+            <p class="pub-meta">Transactions of the Association for Computational Linguistics, 2024</p>
+            <div class="pub-links"><a href="https://doi.org/10.1162/tacl_a_00635">DOI</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <p class="section-kicker">Projects</p>
+        <h2>Tools and research infrastructure.</h2>
+      </div>
+      <div class="projects">
+        <article class="panel">
+          <h3><a href="https://biajin-pku.github.io/research-harness/">Research Harness</a></h3>
+          <p>An agent-first research workflow platform for paper pools, provenance, claim extraction, gap analysis, and long-horizon scientific work.</p>
+        </article>
+        <article class="panel">
+          <h3><a href="https://github.com/Biajin-PKU">Open-source work</a></h3>
+          <p>Code and experiments around AI research workflows, document intelligence, and agentic tooling.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Jiabin Zheng. Publication metadata sourced from public ORCID record 0009-0000-9832-1125.</p>
+    </footer>
+  </main>
+</body>
+</html>
